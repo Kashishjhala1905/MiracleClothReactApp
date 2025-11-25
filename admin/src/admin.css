@@ -1,0 +1,214 @@
+/* -------------------------------------- */
+/* Miracle Boutique Admin Panel Styling   */
+/* -------------------------------------- */
+
+:root {
+  --bg: #faf7f3;
+  --sidebar-bg: #fff;
+  --text: #3b3228;
+  --gold: #b08b55;
+  --muted: #a49483;
+  --card-bg: #ffffff;
+  --border: #e6dfd6;
+  --accent: #efe6db;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  font-family: Inter, sans-serif;
+  color: var(--text);
+}
+
+/* -------------------------------------- */
+/* LAYOUT */
+/* -------------------------------------- */
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar (Desktop) */
+.sidebar {
+  width: 260px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Branding */
+.sidebar .brand {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.sidebar .brand h1 {
+  font-family: "Playfair Display", serif;
+  letter-spacing: 2px;
+  font-size: 26px;
+  color: var(--gold);
+  margin: 0;
+}
+
+.sidebar .brand p {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Sidebar Buttons */
+.nav-btn {
+  padding: 12px 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  background: var(--accent);
+  margin-bottom: 6px;
+  font-weight: 500;
+  transition: 0.2s;
+  color: var(--text);
+}
+
+.nav-btn:hover {
+  background: #e6d7c4;
+}
+
+.nav-btn.active {
+  background: var(--gold);
+  color: white;
+}
+
+/* -------------------------------------- */
+/* MAIN CONTENT */
+/* -------------------------------------- */
+
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Top bar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.topbar input {
+  padding: 10px 14px;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 14px;
+  font-size: 14px;
+  background: var(--gold);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn.ghost {
+  background: var(--accent);
+  color: var(--text);
+}
+
+.btn.ghost:hover {
+  background: #e6d7c4;
+}
+
+/* -------------------------------------- */
+/* PRODUCT GRID */
+/* -------------------------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* -------------------------------------- */
+/* MOBILE RESPONSIVE NAVBAR */
+/* -------------------------------------- */
+
+@media (max-width: 768px) {
+
+  /* Sidebar becomes top navbar */
+  .sidebar {
+    position: sticky !important;
+    top: 0;
+    z-index: 50;
+    width: 100% !important;
+    height: auto !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    gap: 10px;
+    padding: 12px 10px;
+  }
+
+  .sidebar::-webkit-scrollbar {
+    height: 6px;
+  }
+  .sidebar::-webkit-scrollbar-thumb {
+    background: var(--muted);
+    border-radius: 10px;
+  }
+
+  .sidebar .brand {
+    display: none !important;
+  }
+
+  .sidebar .nav-btn {
+    display: inline-block !important;
+    padding: 10px 14px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .main {
+    margin-left: 0 !important;
+    padding: 15px;
+    width: 100% !important;
+  }
+}
